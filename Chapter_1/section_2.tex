@@ -1,0 +1,68 @@
+\section{Algorithms as a Technology}
+\section*{\textit{Solutions}}
+\section*{\underline{Exercises}}
+\subsection
+{Give an example of an application that requires algorithmic content at the application
+level, and discuss the function of the algorithms involved.}
+If you haven't learned about networking layers yet, or if you need a refresher, refer to 
+\url{https://en.wikipedia.org/wiki/Application_layer}. A clear example would be a security algorithm that will deny 
+access to certain parts of a website if your credentials don't match with a role that would have those options.
+\subsection
+{Suppose we are comparing implementations of insertion sort and merge sort on the
+same machine. For inputs of size $n$, insertion sort runs in $8n^2$ steps, while merge
+sort runs in $64n\lg{n}$ steps. For which values of $n$ does insertion sort beat merge
+sort?}
+Assume $n \in \ints^+$. We are trying to find when insertion sort uses less steps than merge sort. So we are solving the 
+inequality $8n^2 < 64n\lg{n}$. We are allowed to divide by $n$ since $n>0$. Along with some manipulation, we get 
+$n < \lg{n^8}$. Since the inverse function of $\lg n$ is monotone increasing, we will apply it. Thus $2^n < n^8$.
+Furthermore, $n^8 > 0\ \forall\ n$ and so $\dfrac{2^n}{n^8} < 1$. Clearly, $n = 1$ is not a solution, but $n=2$. Now we
+must find where the upper limit is. We know there is an upper limit because $2^n$ increases faster than $n^8$. Using
+a calculator (or writing a simple bit of code) will tell us that $\dfrac{2^n}{n^8} \geq 1$ when $n \geq 44$. So we have
+our answer as $\boxed{1 < n < 44, n \in \ints^+.}$ You might ask why I didn't just use a calculator in the first 
+place, and that's becasue computers can compute exponents signficantly faster than logarithms. It's more efficient to 
+write algortithms such that they are both easier to program and faster to run.
+\subsection
+{What is the smallest value of $n$ such that an algorithm whose running time is $100n^2$
+runs faster than an algorithm whose running time is $2^n$ on the same machine?}
+Assume $n \in \ints^+$. We are solving the inequality $100n^2 < 2^n$. So $\dfrac{100n^2}{2^n} < 1$ since $2^n > 0$. 
+Using a calculator or a simple program, we find that $\boxed{n > 14.}$
+\solid
+\section*{\underline{Problems}}
+\solid
+1-1 \quad For each function $f(n)$ and time $t$ in the following table, determine the largest
+size $n$ of a problem that can be solved in time $t$, assuming that the algorithm to
+solve the problem takes $f(n)$ microseconds.
+
+\medskip
+
+\underline{\textit{Answer:}}
+
+\medskip
+
+\begin{center}
+    \begin{tabular}{c | c | c | c | c | c | c | c |}
+        & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+        & second & minute & hour & day & month & year & century \\\hline \rule{0pt}{2.8ex}
+        $\lg{n}$ & $2^{10^6}$ & $2^{6 \cdot 10^7}$ & $2^{3.6 \cdot 10^9}$ & $2^{8.64 \cdot 10^{10}}$ & $2^{2.592 \cdot 10^{12}}$ & $2^{3.1536 \cdot 10^{13}}$ & $2^{3.1536 \cdot 10^{15}}$  \\\hline \rule{0pt}{2.5ex}
+        $\sqrt{n}$ & $10^{12}$ & $3.6 \cdot 10^{15}$ & $1.30 \cdot 10^{19}$ & $7.46 \cdot 10^{21}$ & $6.72 \cdot 10^{24}$ & $9.95 \cdot 10^{26}$ & $9.95 \cdot 10^{30}$ \\\hline \rule{0pt}{2.5ex}
+        $n$ & $10^6$ & $6 \cdot 10^7$ & $3.6 \cdot 10^9$ & $8.64 \cdot 10^{10}$ & $2.59 \cdot 10^{12}$ & $3.15 \cdot 10^{13}$ & $3.15 \cdot 10^{15}$ \\\hline \rule{0pt}{2.5ex}
+        $n\lg{n}$ & & & & & & & \\\hline \rule{0pt}{2.5ex}
+        $n^2$ & $1000$ & $7746$ & $60000$ & $293939$ & $1609969$ & $5615693$ & $56156923$ \\\hline \rule{0pt}{2.5ex}
+        $n^3$ & $100$ & $392$ & $1533$ & $4421$ & $13737$ & $31594$ & $146646$ \\\hline \rule{0pt}{2.5ex}
+        $2^n$ & $6$ & $26$ & $32$ & $37$ & $42$ & $45$ & $52$ \\\hline \rule{0pt}{2.5ex}
+        $n!$ &  &  &  &  &  &  &  \\\hline 
+    \end{tabular}
+\end{center}
+
+Unfortunately, these numbers are so large that the answers for the functions $\sqrt{n}$, $n$, and $n\lg{n}$ must be 
+rounded. Remember that these must be integer solutions if you're required to write them out. But this table is ``close 
+enough'' to the actual answer that I don't care to provide a separate file enumerating the numbers in full.
+
+In general, this problem can be stated as ``Solve for $n$ given $f(n) = t$ where $t$ is in microseconds.'' For all but
+two cases my approach will be applying the inverse function to both sides for an easy solution (given one has a 
+calculator). The factorial function along with $n\lg{n}$ are the only functions here that don't have a trivial inverse. 
+I will provide a solution in C++ for these problems. Keep in mind that 1 second = $10^6$ microseconds. 1 minute = 60 
+seconds or $(1000000)(60)$ microseconds -- and so on. In the ``1 month'' column, I will assume 1 month = 30 days. The 
+longest time is going to be $(1000000)(60)(60)(24)(365)(100)$ (or 3,153,600,000,000,000) microseconds. This number is 
+too large for 32 bit machines (which someone might still have), so the solution will have to be a little creative.
+\solid

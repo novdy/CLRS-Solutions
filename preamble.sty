@@ -1,0 +1,70 @@
+\ProvidesPackage{preamble}
+
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{anyfontsize}
+\usepackage{titlesec}
+\usepackage{import}
+\usepackage{esvect}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage{mathrsfs}
+\usepackage{dashrule}
+\usepackage{graphicx} 
+\usepackage{enumerate}
+\usepackage[makeroom]{cancel}
+
+%Modify Chapters and Sections
+\titleformat
+{\chapter} % command
+[block] % shape
+{\bfseries\Huge\normalfont} % format
+{\bigsolid\vspace*{0.1cm} Chapter \thechapter\vspace*{-0.3cm}\bigsolid} % label
+{1ex} % sep
+{
+    \itshape
+} % before-code
+
+\titleformat
+{\section}
+[block]
+{\Large\normalfont\bfseries}
+{\medsolid\thesection}{2ex}{}[\bigskip]
+
+\titleformat
+{\subsection}
+[block]
+{\normalfont}
+{\vspace*{-1.1cm}\solid\thesubsection}{2ex}{}[\medskip\underline{\textit{Answer:}}]
+
+%Lorem ipsum generator (https://texblog.org/2011/02/26/generating-dummy-textblindtext-with-latex-for-testing/)
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
+%Hyperlinks (https://www.overleaf.com/learn/latex/Hyperlinks)
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\renewcommand\thesubsection{\thesection-\arabic{subsection}}
+
+%Macros
+\newcommand{\solid}{\par\noindent\rule{6.5in}{2pt}\vspace*{0.25cm}\par}
+\newcommand{\medsolid}{\par\noindent\rule{6.5in}{3pt}\vspace*{0.25cm}\par}
+\newcommand{\bigsolid}{\par\noindent\rule{6.5in}{4pt}\par}
+\newcommand{\dash}{\begin{center}\noindent\hdashrule{6.5in}{0.5pt}{0.051in}\end{center}}
+\newcommand{\itemdash}{\begin{flushleft}\vspace*{-0.5cm}\noindent\hdashrule{6.081in}{0.5pt}{0.08in}\vspace*{-0.25cm}\end{flushleft}}
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\ints}{\mathbb{Z}}
+\newcommand{\me}{\mathrm{e}}
+\newcommand{\discriminant}{\mathscr{D}}
+\newcommand{\comp}{^\mathsf{c}}
+\newcommand{\contra}{\Rightarrow\!\mid\!\Leftarrow}
+\newcommand{\rel}{\textasciitilde}
+\DeclareMathOperator{\linop}{\mathscr{L}}
+

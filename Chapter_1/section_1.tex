@@ -1,0 +1,41 @@
+\section{Algorithms}
+\section*{\textit{Solutions}}
+\section*{\underline{Exercises}}
+\subsection
+{Give a real-world example that requires sorting or a real-world example that requires computing a convex hull.}
+    An obvious case for sorting is any kind of data visualization. Suppose you're looking for an author's earlier 
+    works, then sorting by date would be useful. The convex hull problem has less obvious uses, but topography and 
+    mapping come to mind.
+\subsection
+{Other than speed, what other measures of efficiency might one use in a real-world
+setting?}
+    Space is the common alternative to speed. Suppose you have a sorting Algorithm that works in $n$ time but takes 5
+    petabytes of storage. It's so incredibly inefficient that you'll be unable to run the algorithm at all unless 
+    you're using possibly more than one whole storage server. The real life costs of such an algorithm are 
+    prohibitive.
+\subsection
+{Select a data structure that you have seen previously, and discuss its strengths and
+limitations.}
+    I will discuss two. Arrays are perhaps the most primitive data structure and allow fast access and replacement.
+    However, arrays are very costly to keep in order. If you are inserting a value into a sorted array, to keep the 
+    order, you will have to perform move operations on every node with a higher or lower value than the one inserted
+    depending on the original order. This starts getting costly fast. Now consider a linked list. A more complex data
+    structure, but one that can handle insertions easily while maintaining order. But a linked list is slow to access
+    randomly and is more complex to sort initially.
+\subsection
+{How are the shortest-path and traveling-salesman problems given above similar?
+How are they different?}
+    The traveling salesman problem is essentially performing the shortest path problem over and over again. 
+    Furthermore, the order of the nodes visited is undecided; this is where the complexity for the traveling 
+    salesman problem arises.
+\subsection
+{Come up with a real-world problem in which only the best solution will do. Then
+come up with one in which a solution that is “approximately” the best is good
+enough.}
+    A literal search is something that must be satisfied exactly. If I'm looking for the word ``book,'' I will not be 
+    happy when ``look'' turns up after I run the algorithm. On the other hand, a search engine does more and often 
+    will not return with an exact match, but rather a ``close enough'' match. This is useful when you don't know 
+    exactly what you're looking for, but have a general idea. Interestingly, the editor I'm using right now (Visual 
+    Studio Code) uses both. CTRL-F gives me an in-document literal search and CTRL-SHIFT-P gives me a command palette
+    which uses a search engine to find what commands might be useful.
+\solid
